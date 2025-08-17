@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Abdul Raheem — Software Engineer</title>
+  <meta name="description" content="Portfolio of Abdul Raheem — Senior Software Engineer (Fullstack, Integrations, Cloud)." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{
+      --ink:#0a0a0a; /* blackish */
+      --accent:#00f7ff; /* neon cyan */
+      --bg:#0a0a0a;
+    }
+    html{scroll-behavior:smooth}
+    body{font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";}
+    .glass{backdrop-filter:saturate(180%) blur(14px);}    
+    .two-tone{background: linear-gradient(135deg, #0a0a0a 0%, #0a0a0a 60%, #00f7ff 60%, #06b6d4 100%);}    
+    .shadow-xl-soft{box-shadow: 0 10px 30px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.04);}    
+    .nav-active{color: var(--accent) !important;}
+    .hero-bg{position:relative; overflow:hidden;}
+    .hero-bg::before{content:""; position:absolute; inset:0; background:
+      radial-gradient(800px 400px at 20% 10%, rgba(0,247,255,.12), transparent 60%),
+      radial-gradient(600px 300px at 90% 0%, rgba(6,182,212,.16), transparent 55%),
+      url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=2000&q=80');
+      background-size: auto, auto, cover; background-position: center; opacity:.22; pointer-events:none;}
+    .code-rain{position:absolute; inset:auto 0 0 0; height:160%; pointer-events:none; opacity:.4;}
+    .code-rain pre{white-space:pre; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size:12px; line-height:1.2; color:#a3e7ff; text-shadow:0 0 6px rgba(0,247,255,.35);}    
+    @keyframes drift { 0% { transform: translateY(0); } 100% { transform: translateY(-50%); } }
+    .drift { animation: drift 30s linear infinite; }
+  </style>
+</head>
+<body class="bg-[var(--bg)] text-slate-200">
+  <!-- Header / Nav -->
+  <header class="fixed top-0 inset-x-0 z-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <nav class="mt-4 flex items-center justify-between rounded-2xl glass bg-white/5 ring-1 ring-white/10 px-4 py-3 shadow-xl-soft">
+        <a href="#home" class="flex items-center gap-3">
+          <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl two-tone text-[0]">AR</span>
+          <div class="leading-tight">
+            <div class="font-semibold tracking-tight">Abdul Raheem</div>
+            <div class="text-xs text-slate-400">Senior Software Engineer</div>
+          </div>
+        </a>
+        <button id="menuBtn" class="md:hidden inline-flex items-center justify-center rounded-xl ring-1 ring-white/10 px-3 py-2 text-sm text-slate-200" aria-label="Open menu" aria-expanded="false">Menu</button>
+        <ul id="nav" class="hidden md:flex items-center gap-6 text-sm text-slate-300">
+          <li><a href="#home" class="hover:text-cyan-400">Home</a></li>
+          <li><a href="#about" class="hover:text-cyan-400">About</a></li>
+          <li><a href="#experience" class="hover:text-cyan-400">Experience</a></li>
+          <li><a href="#skills" class="hover:text-cyan-400">Skills</a></li>
+          <li><a href="#projects" class="hover:text-cyan-400">Projects</a></li>
+          <li><a href="#contact" class="hover:text-cyan-400">Contact</a></li>
+        </ul>
+      </nav>
+      <ul id="navMobile" class="md:hidden hidden mt-2 rounded-2xl glass bg-white/5 ring-1 ring-white/10 p-3 text-sm">
+        <li><a href="#home" class="block px-3 py-2 hover:text-cyan-400">Home</a></li>
+        <li><a href="#about" class="block px-3 py-2 hover:text-cyan-400">About</a></li>
+        <li><a href="#experience" class="block px-3 py-2 hover:text-cyan-400">Experience</a></li>
+        <li><a href="#skills" class="block px-3 py-2 hover:text-cyan-400">Skills</a></li>
+        <li><a href="#projects" class="block px-3 py-2 hover:text-cyan-400">Projects</a></li>
+        <li><a href="#contact" class="block px-3 py-2 hover:text-cyan-400">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="hero-bg pt-36">
+    <!-- Animated code rain overlay (no broken-icon risk) -->
+    <div aria-hidden="true" class="code-rain">
+      <pre class="drift">$ curl -X POST /api/auth
+{
+  "user": "abdul.raheem",
+  "scopes": ["read","write","integrations"]
+}
+---
+const pipeline = createPipeline({ source: "s3://bucket/raw", steps: ["parse","clean","enrich"], sink: "rds.cluster" });
+await pipeline.run();
+---
+class Order < ApplicationRecord
+  belongs_to :user
+  has_many :line_items
+  validates :total_cents, presence: true
+end
+---
+function useFetch(url){
+  const [data,setData] = React.useState(null);
+  React.useEffect(()=>{ fetch(url).then(r=>r.json()).then(setData); },[url]);
+  return data;
+}
+      </pre>
+    </div>
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24">
+  <!-- Full-width h1 (removed max-w-3xl constraint) -->
+  <h1 class="text-3xl sm:text-5xl font-bold leading-tight">
+    Where cloud, code, and creativity converge to build scalable digital solutions that connect people, platforms, and performance
+  </h1>
+
+  <!-- Constrained content below -->
+  <div class="max-w-3xl">
+    <p class="mt-6 text-slate-300 text-lg">
+      .NET • Dynamics 365 • SQL • AWS • Python • DevOps • Ruby on Rails • Angular/React. Delivering performant, elegant solutions.
+    </p>
+    <div class="mt-8 flex flex-wrap gap-3">
+      <a href="#projects" class="inline-flex items-center gap-2 rounded-2xl bg-cyan-500/90 hover:bg-cyan-400 text-ink font-semibold px-5 py-3">
+        View Projects
+      </a>
+      <a href="https://linkedin.com/in/abdul-raheem-ba8045214" target="_blank" class="inline-flex items-center gap-2 rounded-2xl ring-1 ring-white/20 hover:ring-cyan-400 text-slate-200 px-5 py-3">
+        LinkedIn
+      </a>
+    </div>
+  </div>
+</div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="relative py-24">
+    <div class="absolute inset-0 -z-10 opacity-20" style="background: radial-gradient(600px 300px at 20% 20%, #06b6d4, transparent), radial-gradient(400px 200px at 80% 10%, #6366f1, transparent);"></div>
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <h2 class="text-3xl sm:text-4xl font-bold">About</h2>
+        <p class="mt-6 text-slate-300 leading-relaxed">Senior Software Engineer with 7+ years across frontend, backend, and complex integrations. Strong in .NET, Dynamics 365, SQL, AWS, Python, DevOps, Ruby on Rails, and Angular/React. I build reliable, testable, scalable products with a user-first lens.</p>
+        <dl class="mt-8 grid grid-cols-2 gap-6 text-sm">
+          <div><dt class="text-slate-400">Location</dt><dd class="font-medium">Lahore, Pakistan</dd></div>
+          <div><dt class="text-slate-400">Availability</dt><dd class="font-medium">Open to US-remote</dd></div>
+          <div><dt class="text-slate-400">Focus</dt><dd class="font-medium">Frontend & Backend • Integrations</dd></div>
+          <div><dt class="text-slate-400">Stack</dt><dd class="font-medium">.NET, D365, SQL, AWS, Python, DevOps, Ruby on Rails, Angular/React</dd></div>
+        </dl>
+      </div>
+      <div class="relative">
+        <img referrerpolicy="no-referrer" crossorigin="anonymous" data-srcs="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1200&q=80|https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=1200&q=80|https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80" alt="Coding workspace" class="rounded-3xl shadow-xl-soft ring-1 ring-white/10 w-full h-72 object-cover"/>
+        <div class="absolute -bottom-6 -left-6 rounded-3xl two-tone w-32 h-32 -z-10"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience" class="py-24 bg-white/5">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl sm:text-4xl font-bold">Experience</h2>
+      <div class="mt-10 grid gap-6 lg:grid-cols-3">
+        <article class="rounded-2xl ring-1 ring-white/10 bg-white/5 p-6">
+          <header class="flex items-center justify-between">
+            <h3 class="font-semibold">Sr. Software Engineer <br> Code Practitioners</h3>
+            <span class="text-xs text-slate-400">Dec 2024 – Jul 2025</span>
+          </header>
+          <ul class="mt-4 list-disc list-inside text-sm text-slate-300 space-y-2">
+            <li>Delivered fullstack solutions in .NET, Rails, Angular/React; Python-based integrations.</li>
+            <li>Customized D365 (X++, forms, data entities); improved UX & performance.</li>
+            <li>Integrated external systems via OData, Batch API, and Business Events.</li>
+          </ul>
+        </article>
+        <article class="rounded-2xl ring-1 ring-white/10 bg-white/5 p-6">
+          <header class="flex items-center justify-between">
+            <h3 class="font-semibold">Software Engineer <br> NorthBay Solutions</h3>
+            <span class="text-xs text-slate-400"> Dec 2022 – Nov 2024</span>
+          </header>
+          <ul class="mt-4 list-disc list-inside text-sm text-slate-300 space-y-2">
+            <li>APIs and search services in .NET & Python; data pipelines and NLP.</li>
+            <li>Microservices & third‑party integrations; AWS deployments.</li>
+            <li>Performance tuning and observability improvements.</li>
+          </ul>
+        </article>
+        <article class="rounded-2xl ring-1 ring-white/10 bg-white/5 p-6">
+          <header class="flex items-center justify-between">
+            <h3 class="font-semibold">Jr. Software Engineer <br> Digital Mandee</h3>
+            <span class="text-xs text-slate-400">Nov 2018 – Nov 2022</span>
+          </header>
+          <ul class="mt-4 list-disc list-inside text-sm text-slate-300 space-y-2">
+            <li>Developed APIs, services, and web apps with clean, maintainable code.</li>
+            <li>Supported QA, debugging, and production fixes.</li>
+            <li>Worked across SQL Server/MySQL and frontend enhancements.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl sm:text-4xl font-bold">Skills</h2>
+      <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="rounded-2xl ring-1 ring-white/10 p-6 bg-white/5">
+          <h3 class="font-semibold">Backend</h3>
+          <p class="mt-3 text-sm text-slate-300">.NET, Ruby on Rails, Python, REST APIs, SQL, MySQL, Components improvement.</p>
+        </div>
+        <div class="rounded-2xl ring-1 ring-white/10 p-6 bg-white/5">
+          <h3 class="font-semibold">Frontend</h3>
+          <p class="mt-3 text-sm text-slate-300">Angular, React, HTML, CSS/Bootstrap, JavaScript.</p>
+        </div>
+        <div class="rounded-2xl ring-1 ring-white/10 p-6 bg-white/5">
+          <h3 class="font-semibold">Dynamics 365</h3>
+          <p class="mt-3 text-sm text-slate-300">X++, Forms, Data Entities, Integrations (OData, Batch, Business Events).</p>
+        </div>
+        <div class="rounded-2xl ring-1 ring-white/10 p-6 bg-white/5">
+          <h3 class="font-semibold">Cloud & DevOps</h3>
+          <p class="mt-3 text-sm text-slate-300">AWS (S3, RDS, DynamoDB, EMR), CI/CD, GitHub, JIRA, Azure AD.</p>
+        </div>
+        <div class="rounded-2xl ring-1 ring-white/10 p-6 bg-white/5">
+          <h3 class="font-semibold">Data & NLP</h3>
+          <p class="mt-3 text-sm text-slate-300">Python parsing, search relevance, Apache Solr, JSON, OOAD.</p>
+        </div>
+        <div class="rounded-2xl ring-1 ring-white/10 p-6 bg-white/5">
+          <h3 class="font-semibold">Practices</h3>
+          <p class="mt-3 text-sm text-slate-300">Agile/Scrum, Testing, Performance tuning, SEO basics.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="py-24 bg-white/5">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl sm:text-4xl font-bold">Selected Projects</h2>
+      <div class="mt-10 grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+        <!-- 1: Python/NLP -->
+<article class="group rounded-2xl overflow-hidden ring-1 ring-white/10 bg-white/5">
+  <a href="#" class="block relative">
+    <img referrerpolicy="no-referrer" crossorigin="anonymous" data-srcs="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80|https://images.unsplash.com/photo-1629904853893-c2c8981a1dc5?auto=format&fit=crop&w=1200&q=80|https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80" alt="Search suggestion service" class="h-48 w-full object-cover group-hover:scale-[1.02] transition"/>
+  </a>
+  <div class="p-6">
+    <h3 class="font-semibold">Search Suggestion Engine</h3>
+    <p class="mt-2 text-sm text-slate-300">NLP-powered suggestion service with robust APIs and Python pipelines.</p>
+    <ul class="mt-3 flex flex-wrap gap-2 text-xs text-slate-400">
+      <li class="rounded-full bg-white/5 px-2 py-1 ring-1 ring-white/10">Python</li>
+      <li class="rounded-full bg-white/5 px-2 py-1 ring-1 ring-white/10">APIs</li>
+      <li class="rounded-full bg-white/5 px-2 py-1 ring-1 ring-white/10">MySQL</li>
+    </ul>
+  </div>
+</article>
+
+        <!-- 2: D365 / Integrations -->
+<article class="group rounded-2xl overflow-hidden ring-1 ring-white/10 bg-white/5">
+  <a href="#" class="block relative">
+    <img referrerpolicy="no-referrer" crossorigin="anonymous" data-srcs="https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=1200&q=80|https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1200&q=80|https://images.unsplash.com/photo-1629904853716-f0bc54eea481?auto=format&fit=crop&w=1200&q=80" alt="Maintenance and Repair system" class="h-48 w-full object-cover group-hover:scale-[1.02] transition"/>
+  </a>
+  <div class="p-6">
+    <h3 class="font-semibold">Maintenance & Repair</h3>
+    <p class="mt-2 text-sm text-slate-300">Enterprise workflows with secure, testable services and D365 integration.</p>
+    <ul class="mt-3 flex flex-wrap gap-2 text-xs text-slate-400">
+      <li class="rounded-full bg-white/5 px-2 py-1 ring-1 ring-white/10">D365</li>
+      <li class="rounded-full bg-white/5 px-2 py-1 ring-1 ring-white/10">APIs</li>
+      <li class="rounded-full bg-white/5 px-2 py-1 ring-1 ring-white/10">Integrations</li>
+    </ul>
+  </div>
+</article>
+        <!-- 3: Components Improvements -->
+        <article class="group rounded-2xl overflow-hidden ring-1 ring-white/10 bg-white/5">
+          <a href="#" class="block relative">
+            <img referrerpolicy="no-referrer" crossorigin="anonymous" data-srcs="https://images.unsplash.com/photo-1555421689-43cad7100751?auto=format&fit=crop&w=1200&q=80|https://images.unsplash.com/photo-1529101091764-c3526daf38fe?auto=format&fit=crop&w=1200&q=80|https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80" alt="Common components improvements" class="h-48 w-full object-cover group-hover:scale-[1.02] transition"/>
+          </a>
+          <div class="p-6">
+            <h3 class="font-semibold">Common Components Improvements</h3>
+            <p class="mt-2 text-sm text-slate-300">Refactors, performance optimizations, and API hardening across shared modules.</p>
+            <ul class="mt-3 flex flex-wrap gap-2 text-xs text-slate-400">
+              <li class="rounded-full bg-white/5 px-2 py-1 ring-1 ring-white/10">APIs</li>
+              <li class="rounded-full bg-white/5 px-2 py-1 ring-1 ring-white/10">.Net</li>
+              <li class="rounded-full bg-white/5 px-2 py-1 ring-1 ring-white/10">Refactor</li>
+            </ul>
+          </div>
+        </article>
+        <!-- 4: Python ETL - Updated with proper coding screens -->
+<article class="group rounded-2xl overflow-hidden ring-1 ring-white/10 bg-white/5">
+  <a href="#" class="block relative">
+    <img referrerpolicy="no-referrer" crossorigin="anonymous" data-srcs="https://images.unsplash.com/photo-1629904853716-f0bc54eea481?auto=format&fit=crop&w=1200&q=80|https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80|https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1200&q=80" alt="Python ETL pipelines" class="h-48 w-full object-cover group-hover:scale-[1.02] transition"/>
+  </a>
+  <div class="p-6">
+    <h3 class="font-semibold">Data Scraper & ETL</h3>
+    <p class="mt-2 text-sm text-slate-300">Distributed scraping with resilient retry/backoff and transformation into analytics‑ready stores.</p>
+    <ul class="mt-3 flex flex-wrap gap-2 text-xs text-slate-400">
+      <li class="rounded-full bg-white/5 px-2 py-1 ring-1 ring-white/10">Python</li>
+      <li class="rounded-full bg-white/5 px-2 py-1 ring-1 ring-white/10">ETL</li>
+      <li class="rounded-full bg-white/5 px-2 py-1 ring-1 ring-white/10">AWS</li>
+    </ul>
+  </div>
+</article>
+        <!-- 5: Ruby on Rails API -->
+        <article class="group rounded-2xl overflow-hidden ring-1 ring-white/10 bg-white/5">
+          <a href="#" class="block relative">
+            <img referrerpolicy="no-referrer" crossorigin="anonymous" data-srcs="https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=1200&q=80|https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80|https://images.unsplash.com/photo-1537884944318-390069bb8665?auto=format&fit=crop&w=1200&q=80" alt="Ruby on Rails e-commerce API" class="h-48 w-full object-cover group-hover:scale-[1.02] transition"/>
+          </a>
+          <div class="p-6">
+            <h3 class="font-semibold">Rails E‑commerce API</h3>
+            <p class="mt-2 text-sm text-slate-300">Checkout, inventory, and payments with JWT auth and background jobs.</p>
+            <ul class="mt-3 flex flex-wrap gap-2 text-xs text-slate-400">
+              <li class="rounded-full bg-white/5 px-2 py-1 ring-1 ring-white/10">Ruby on Rails</li>
+              <li class="rounded-full bg-white/5 px-2 py-1 ring-1 ring-white/10">PostgreSQL</li>
+              <li class="rounded-full bg-white/5 px-2 py-1 ring-1 ring-white/10">JWT</li>
+            </ul>
+          </div>
+        </article>
+        <!-- 6: React/Angular Admin - Updated with proper coding screens -->
+<article class="group rounded-2xl overflow-hidden ring-1 ring-white/10 bg-white/5">
+  <a href="#" class="block relative">
+    <img referrerpolicy="no-referrer" crossorigin="anonymous" data-srcs="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80|https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=1200&q=80|https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?auto=format&fit=crop&w=1200&q=80" alt="React/Angular admin dashboard" class="h-48 w-full object-cover group-hover:scale-[1.02] transition"/>
+  </a>
+  <div class="p-6">
+    <h3 class="font-semibold">Admin Analytics Dashboard</h3>
+    <p class="mt-2 text-sm text-slate-300">Real-time charts, RBAC, and audit logs with React or Angular frontend.</p>
+    <ul class="mt-3 flex flex-wrap gap-2 text-xs text-slate-400">
+      <li class="rounded-full bg-white/5 px-2 py-1 ring-1 ring-white/10">React</li>
+      <li class="rounded-full bg-white/5 px-2 py-1 ring-1 ring-white/10">Angular</li>
+      <li class="rounded-full bg-white/5 px-2 py-1 ring-1 ring-white/10">RBAC</li>
+    </ul>
+  </div>
+</article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="rounded-3xl ring-1 ring-white/10 bg-white/5 p-8 md:p-12 grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <h2 class="text-3xl sm:text-4xl font-bold">Let’s build something solid</h2>
+          <p class="mt-4 text-slate-300">Open to roles focused on fullstack delivery and high‑quality integrations. Prefer US time‑zone overlap.</p>
+          <div class="mt-6 space-y-2 text-sm">
+            <div class="text-slate-400">Email</div>
+            <a class="font-medium hover:text-cyan-400" href="mailto:abdulraheem07170@gmail.com">abdulraheem07170@gmail.com</a>
+            <div class="mt-4 text-slate-400">LinkedIn</div>
+            <a class="font-medium hover:text-cyan-400" target="_blank" href="https://linkedin.com/in/abdul-raheem-ba8045214">/abdul-raheem-ba8045214</a>
+          </div>
+        </div>
+        <form class="space-y-4" onsubmit="event.preventDefault(); alert('Thanks! I\'ll get back to you.');">
+          <div>
+            <label class="block text-sm text-slate-400" for="name">Name</label>
+            <input id="name" required class="mt-1 w-full rounded-xl bg-white/5 ring-1 ring-white/10 px-4 py-3 outline-none focus:ring-2 focus:ring-cyan-400" placeholder="Your name"/>
+          </div>
+          <div>
+            <label class="block text-sm text-slate-400" for="email">Email</label>
+            <input id="email" type="email" required class="mt-1 w-full rounded-xl bg-white/5 ring-1 ring-white/10 px-4 py-3 outline-none focus:ring-2 focus:ring-cyan-400" placeholder="you@example.com"/>
+          </div>
+          <div>
+            <label class="block text-sm text-slate-400" for="msg">Message</label>
+            <textarea id="msg" rows="4" required class="mt-1 w-full rounded-xl bg-white/5 ring-1 ring-white/10 px-4 py-3 outline-none focus:ring-2 focus:ring-cyan-400" placeholder="What would you like to build?"></textarea>
+          </div>
+          <button class="w-full md:w-auto inline-flex items-center justify-center gap-2 rounded-2xl bg-cyan-500/90 hover:bg-cyan-400 text-ink font-semibold px-6 py-3">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-10 border-t border-white/10">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-sm text-slate-400">© <span id="year"></span> Abdul Raheem. All rights reserved.</p>
+      <a href="#home" class="text-sm hover:text-cyan-400">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile menu toggle
+    const btn = document.getElementById('menuBtn');
+    const mobile = document.getElementById('navMobile');
+    btn?.addEventListener('click', ()=> {
+      const isHidden = mobile.classList.toggle('hidden');
+      btn.setAttribute('aria-expanded', String(!isHidden));
+    });
+
+    // Active section highlighting
+    const sections = [...document.querySelectorAll('section[id]')];
+    const navLinks = [...document.querySelectorAll('header a[href^="#"]')];
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          const id = '#' + entry.target.id;
+          navLinks.forEach(a=> a.classList.toggle('nav-active', a.getAttribute('href')===id));
+        }
+      })
+    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+    sections.forEach(s=> io.observe(s));
+
+    // Robust Unsplash loader with fallbacks (prevents broken images)
+    function setNext(img){
+      const srcs = (img.dataset.srcs||'').split('|').filter(Boolean);
+      const i = Number(img.dataset.idx||0);
+      if(i >= srcs.length){
+        img.onerror = null;
+        img.src = 'data:image/svg+xml;charset=utf-8,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0a0a0a" offset="0"/><stop stop-color="#00f7ff" offset="1"/></linearGradient></defs><rect fill="url(#g)" width="100%" height="100%"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="white" font-family="Inter, Arial" font-size="20">Image unavailable</text></svg>');
+        return;
+      }
+      img.dataset.idx = i+1;
+      img.src = srcs[i];
+    }
+    document.querySelectorAll('img[data-srcs]').forEach(img=>{
+      img.addEventListener('error',()=>setNext(img));
+      setNext(img);
+    });
+  </script>
+</body>
+</html>
